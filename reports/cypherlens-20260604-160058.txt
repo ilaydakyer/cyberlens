@@ -1,0 +1,309 @@
+═════════════════════════════════════════════════════════════════
+  CYPHERLENS SCOUT — HİBRİT TEHDİT RİSK RAPORU
+═════════════════════════════════════════════════════════════════
+  Oluşturma  : 2026-06-04 16:00:59
+  Platform   : windows,linux
+  Taktik     : execution,persistence
+  Kaynak     : MITRE ATT&CK Enterprise (Canlı)
+
+─────────────────────────────────────────────────────────────────
+  VERİ KALİTESİ
+─────────────────────────────────────────────────────────────────
+  Toplam STIX Nesnesi  : 25842
+  Attack-Pattern       : 858
+  Deprecated/Revoked   : 161 (elendi)
+  ID'siz               : 0 (elendi)
+  Analiz Edilen        : 697
+
+─────────────────────────────────────────────────────────────────
+  RİSK ÖZETİ
+─────────────────────────────────────────────────────────────────
+  Filtre Eşleşmesi     : 133 teknik
+  CRITICAL             : 36
+  HIGH                 : 84
+  MEDIUM               : 13
+  LOW                  : 0
+  Ortalama Risk Skoru  : 64.1 / 100
+  En Sık Taktik        : persistence
+
+═════════════════════════════════════════════════════════════════
+  TEKNİK DETAYLARI  (20 teknik)
+═════════════════════════════════════════════════════════════════
+
+  [1]  T1078.003 — Local Accounts
+       Risk Skoru    : 100.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.726Z
+       Platformlar   : containers, esxi, linux, macos, network devices, windows
+       Kill Chain    : initial-access → persistence → privilege-escalation → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [2]  T1078.001 — Default Accounts
+       Risk Skoru    : 100.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.636Z
+       Platformlar   : containers, esxi, iaas, identity provider, linux, macos, network devices, office suite, saas, windows
+       Kill Chain    : initial-access → persistence → privilege-escalation → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [3]  T1556.006 — Multi-Factor Authentication
+       Risk Skoru    : 100.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.708Z
+       Platformlar   : iaas, identity provider, linux, macos, office suite, saas, windows
+       Kill Chain    : persistence → credential-access → defense-impairment
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +16  Kritik taktik [credential-access]: doğrudan iş etkisi
+·································································
+
+  [4]  T1078.002 — Domain Accounts
+       Risk Skoru    : 100.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.714Z
+       Platformlar   : esxi, linux, macos, windows
+       Kill Chain    : initial-access → persistence → privilege-escalation → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [5]  T1556.007 — Hybrid Identity
+       Risk Skoru    : 100.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.633Z
+       Platformlar   : iaas, identity provider, office suite, saas, windows
+       Kill Chain    : persistence → credential-access → defense-impairment
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +16  Kritik taktik [credential-access]: doğrudan iş etkisi
+·································································
+
+  [6]  T1205.001 — Port Knocking
+       Risk Skoru    : 99.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.688Z
+       Platformlar   : linux, macos, network devices, windows
+       Kill Chain    : persistence → command-and-control → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +14  Kritik taktik [command-and-control]: doğrudan iş etkisi
+·································································
+
+  [7]  T1098.004 — SSH Authorized Keys
+       Risk Skoru    : 92.0 / 100  [CRITICAL]
+       Versiyon      : 1.4  |  Güncelleme: 2026-05-12T15:12:00.640Z
+       Platformlar   : esxi, iaas, linux, macos, network devices
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [8]  T1037.004 — RC Scripts
+       Risk Skoru    : 92.0 / 100  [CRITICAL]
+       Versiyon      : 2.2  |  Güncelleme: 2025-10-24T17:49:28.955Z
+       Platformlar   : macos, linux, network devices, esxi
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [9]  T1053.002 — At
+       Risk Skoru    : 92.0 / 100  [CRITICAL]
+       Versiyon      : 2.4  |  Güncelleme: 2025-10-24T17:49:36.495Z
+       Platformlar   : windows, linux, macos
+       Kill Chain    : execution → persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [10]  T1053.003 — Cron
+       Risk Skoru    : 92.0 / 100  [CRITICAL]
+       Versiyon      : 1.3  |  Güncelleme: 2025-10-24T17:48:33.856Z
+       Platformlar   : linux, macos, esxi
+       Kill Chain    : execution → persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [11]  T1556 — Modify Authentication Process
+       Risk Skoru    : 91.0 / 100  [CRITICAL]
+       Versiyon      : 3.0  |  Güncelleme: 2026-05-12T15:12:00.724Z
+       Platformlar   : iaas, identity provider, linux, macos, network devices, office suite, saas, windows
+       Kill Chain    : persistence → credential-access → defense-impairment
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +16  Kritik taktik [credential-access]: doğrudan iş etkisi
+·································································
+
+  [12]  T1205.002 — Socket Filters
+       Risk Skoru    : 91.0 / 100  [CRITICAL]
+       Versiyon      : 2.0  |  Güncelleme: 2026-05-12T15:12:00.619Z
+       Platformlar   : linux, macos, windows
+       Kill Chain    : persistence → command-and-control → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +14  Kritik taktik [command-and-control]: doğrudan iş etkisi
+·································································
+
+  [13]  T1053 — Scheduled Task/Job
+       Risk Skoru    : 90.0 / 100  [CRITICAL]
+       Versiyon      : 2.5  |  Güncelleme: 2026-05-12T15:12:00.626Z
+       Platformlar   : containers, esxi, linux, macos, network devices, windows
+       Kill Chain    : execution → persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [14]  T1078 — Valid Accounts
+       Risk Skoru    : 90.0 / 100  [CRITICAL]
+       Versiyon      : 3.0  |  Güncelleme: 2026-05-12T15:12:00.707Z
+       Platformlar   : containers, esxi, iaas, identity provider, linux, macos, network devices, office suite, saas, windows
+       Kill Chain    : initial-access → persistence → privilege-escalation → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [15]  T1205 — Traffic Signaling
+       Risk Skoru    : 89.0 / 100  [CRITICAL]
+       Versiyon      : 3.0  |  Güncelleme: 2026-05-12T15:12:00.629Z
+       Platformlar   : linux, macos, network devices, windows
+       Kill Chain    : persistence → command-and-control → stealth
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +14  Kritik taktik [command-and-control]: doğrudan iş etkisi
+·································································
+
+  [16]  T1556.003 — Pluggable Authentication Modules
+       Risk Skoru    : 85.0 / 100  [CRITICAL]
+       Versiyon      : 3.0  |  Güncelleme: 2026-05-12T15:12:00.620Z
+       Platformlar   : linux, macos
+       Kill Chain    : persistence → credential-access → defense-impairment
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +14  İki platform hedefleme: çapraz ortam riski
+         +20  3+ taktik fazı: tam kampanya desteği (persistence → exfil)
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +16  Kritik taktik [credential-access]: doğrudan iş etkisi
+·································································
+
+  [17]  T1546.016 — Installer Packages
+       Risk Skoru    : 84.0 / 100  [CRITICAL]
+       Versiyon      : 1.2  |  Güncelleme: 2026-05-12T15:12:00.721Z
+       Platformlar   : linux, macos, windows
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [18]  T1546.018 — Python Startup Hooks
+       Risk Skoru    : 84.0 / 100  [CRITICAL]
+       Versiyon      : 1.0  |  Güncelleme: 2025-10-21T02:35:20.850Z
+       Platformlar   : linux, macos, windows
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [19]  T1098.007 — Additional Local or Domain Groups
+       Risk Skoru    : 84.0 / 100  [CRITICAL]
+       Versiyon      : 1.1  |  Güncelleme: 2025-09-26T18:25:02.290Z
+       Platformlar   : windows, macos, linux
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +22  Üç platform hedefleme: hibrit ortam riski
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +10  Alt-teknik: genel algılama imzalarını atlatma kapasitesi
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  [20]  T1547 — Boot or Logon Autostart Execution
+       Risk Skoru    : 82.0 / 100  [CRITICAL]
+       Versiyon      : 1.3  |  Güncelleme: 2025-10-24T17:48:29.846Z
+       Platformlar   : linux, macos, windows, network devices
+       Kill Chain    : persistence → privilege-escalation
+       Veri Kaynakları: ⚠ YOK — algılama kapasitesi sıfır
+       Risk Faktörleri:
+         +30  Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli
+         +12  Çift taktik fazı: lateral movement veya persistence kombinasyonu
+         +25  KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör
+         +15  Kritik taktik [privilege-escalation]: doğrudan iş etkisi
+·································································
+
+  Rapor sonu · CypherLens Scout · 2026
+═════════════════════════════════════════════════════════════════
