@@ -1,0 +1,549 @@
+[
+  {
+    "Technique": {
+      "ID": "T1078.004",
+      "Name": "Cloud Accounts",
+      "Description": "Valid accounts in cloud environments may allow adversaries to perform actions to achieve Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application. Cloud Accounts can exist solely in the cloud; alternatively, they may be hybrid-joined between on-premises systems and the cloud through syncing or federation with other identity sources such as Windows Active Directory.(Citation: AWS Identity Federation)(Citation: Google Federating GC)(Citation: Microsoft Deploying AD Federation)\n\nService or user accounts may be targeted by adversaries through [Brute Force](https://attack.mitre.org/techniques/T1110), [Phishing](https://attack.mitre.org/techniques/T1566), or various other means to gain access to the environment. Federated or synced accounts may be a pathway for the adversary to affect both on-premises systems and cloud environments - for example, by leveraging shared credentials to log onto [Remote Services](https://attack.mitre.org/techniques/T1021). High privileged cloud accounts, whether federated, synced, or cloud-only, may also allow pivoting to on-premises environments by leveraging SaaS-based [Software Deployment Tools](https://attack.mitre.org/techniques/T1072) to run commands on hybrid-joined devices.\n\nAn adversary may create long lasting [Additional Cloud Credentials](https://attack.mitre.org/techniques/T1098/001) on a compromised cloud account to maintain persistence in the environment. Such credentials may also be used to bypass security controls such as multi-factor authentication. \n\nCloud accounts may also be able to assume [Temporary Elevated Cloud Access](https://attack.mitre.org/techniques/T1548/005) or other privileges through various means within the environment. Misconfigurations in role assignments or role assumption policies may allow an adversary to use these mechanisms to leverage permissions outside the intended scope of the account. Such over privileged accounts may be used to harvest sensitive data from online storage accounts and databases through [Cloud API](https://attack.mitre.org/techniques/T1059/009) or other methods. For example, in Azure environments, adversaries may target Azure Managed Identities, which allow associated Azure resources to request access tokens. By compromising a resource with an attached Managed Identity, such as an Azure VM, adversaries may be able to [Steal Application Access Token](https://attack.mitre.org/techniques/T1528)s to move laterally across the cloud environment.(Citation: SpecterOps Managed Identity 2022)",
+      "Tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "Platforms": [
+        "iaas",
+        "identity provider",
+        "office suite",
+        "saas"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.723Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [privilege-escalation]: doğrudan iş etkisi",
+        "Points": 15
+      }
+    ],
+    "TacticChain": "initial-access → persistence → privilege-escalation → stealth"
+  },
+  {
+    "Technique": {
+      "ID": "T1556.006",
+      "Name": "Multi-Factor Authentication",
+      "Description": "Adversaries may disable or modify multi-factor authentication (MFA) mechanisms to enable persistent access to compromised accounts.\n\nOnce adversaries have gained access to a network by either compromising an account lacking MFA or by employing an MFA bypass method such as [Multi-Factor Authentication Request Generation](https://attack.mitre.org/techniques/T1621), adversaries may leverage their access to modify or completely disable MFA defenses. This can be accomplished by abusing legitimate features, such as excluding users from Azure AD Conditional Access Policies, registering a new yet vulnerable/adversary-controlled MFA method, or by manually patching MFA programs and configuration files to bypass expected functionality.(Citation: Mandiant APT42)(Citation: Azure AD Conditional Access Exclusions)\n\nFor example, modifying the Windows hosts file (`C:\\windows\\system32\\drivers\\etc\\hosts`) to redirect MFA calls to localhost instead of an MFA server may cause the MFA process to fail. If a \"fail open\" policy is in place, any otherwise successful authentication attempt may be granted access without enforcing MFA. (Citation: Russians Exploit Default MFA Protocol - CISA March 2022) \n\nDepending on the scope, goals, and privileges of the adversary, MFA defenses may be disabled for individual accounts or for all accounts tied to a larger group, such as all domain accounts in a victim's network environment.(Citation: Russians Exploit Default MFA Protocol - CISA March 2022) ",
+      "Tactics": [
+        "defense-impairment",
+        "persistence",
+        "credential-access"
+      ],
+      "Platforms": [
+        "iaas",
+        "identity provider",
+        "linux",
+        "macos",
+        "office suite",
+        "saas",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.708Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [credential-access]: doğrudan iş etkisi",
+        "Points": 16
+      }
+    ],
+    "TacticChain": "persistence → credential-access → defense-impairment"
+  },
+  {
+    "Technique": {
+      "ID": "T1078.002",
+      "Name": "Domain Accounts",
+      "Description": "Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.(Citation: TechNet Credential Theft) Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover users, administrators, and services.(Citation: Microsoft AD Accounts)\n\nAdversaries may compromise domain accounts, some with a high level of privileges, through various means such as [OS Credential Dumping](https://attack.mitre.org/techniques/T1003) or password reuse, allowing access to privileged resources of the domain.",
+      "Tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "Platforms": [
+        "esxi",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.714Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [privilege-escalation]: doğrudan iş etkisi",
+        "Points": 15
+      }
+    ],
+    "TacticChain": "initial-access → persistence → privilege-escalation → stealth"
+  },
+  {
+    "Technique": {
+      "ID": "T1556.007",
+      "Name": "Hybrid Identity",
+      "Description": "Adversaries may patch, modify, or otherwise backdoor cloud authentication processes that are tied to on-premises user identities in order to bypass typical authentication mechanisms, access credentials, and enable persistent access to accounts.  \n\nMany organizations maintain hybrid user and device identities that are shared between on-premises and cloud-based environments. These can be maintained in a number of ways. For example, Microsoft Entra ID includes three options for synchronizing identities between Active Directory and Entra ID(Citation: Azure AD Hybrid Identity):\n\n* Password Hash Synchronization (PHS), in which a privileged on-premises account synchronizes user password hashes between Active Directory and Entra ID, allowing authentication to Entra ID to take place entirely in the cloud \n* Pass Through Authentication (PTA), in which Entra ID authentication attempts are forwarded to an on-premises PTA agent, which validates the credentials against Active Directory \n* Active Directory Federation Services (AD FS), in which a trust relationship is established between Active Directory and Entra ID \n\nAD FS can also be used with other SaaS and cloud platforms such as AWS and GCP, which will hand off the authentication process to AD FS and receive a token containing the hybrid users’ identity and privileges. \n\nBy modifying authentication processes tied to hybrid identities, an adversary may be able to establish persistent privileged access to cloud resources. For example, adversaries who compromise an on-premises server running a PTA agent may inject a malicious DLL into the `AzureADConnectAuthenticationAgentService` process that authorizes all attempts to authenticate to Entra ID, as well as records user credentials.(Citation: Azure AD Connect for Read Teamers)(Citation: AADInternals Azure AD On-Prem to Cloud) In environments using AD FS, an adversary may edit the `Microsoft.IdentityServer.Servicehost` configuration file to load a malicious DLL that generates authentication tokens for any user with any set of claims, thereby bypassing multi-factor authentication and defined AD FS policies.(Citation: MagicWeb)\n\nIn some cases, adversaries may be able to modify the hybrid identity authentication process from the cloud. For example, adversaries who compromise a Global Administrator account in an Entra ID tenant may be able to register a new PTA agent via the web console, similarly allowing them to harvest credentials and log into the Entra ID environment as any user.(Citation: Mandiant Azure AD Backdoors)",
+      "Tactics": [
+        "defense-impairment",
+        "persistence",
+        "credential-access"
+      ],
+      "Platforms": [
+        "iaas",
+        "identity provider",
+        "office suite",
+        "saas",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.633Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [credential-access]: doğrudan iş etkisi",
+        "Points": 16
+      }
+    ],
+    "TacticChain": "persistence → credential-access → defense-impairment"
+  },
+  {
+    "Technique": {
+      "ID": "T1078.003",
+      "Name": "Local Accounts",
+      "Description": "Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.\n\nLocal Accounts may also be abused to elevate privileges and harvest credentials through [OS Credential Dumping](https://attack.mitre.org/techniques/T1003). Password reuse may allow the abuse of local accounts across a set of machines on a network for the purposes of Privilege Escalation and Lateral Movement. ",
+      "Tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "Platforms": [
+        "containers",
+        "esxi",
+        "linux",
+        "macos",
+        "network devices",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.726Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [privilege-escalation]: doğrudan iş etkisi",
+        "Points": 15
+      }
+    ],
+    "TacticChain": "initial-access → persistence → privilege-escalation → stealth"
+  },
+  {
+    "Technique": {
+      "ID": "T1078.001",
+      "Name": "Default Accounts",
+      "Description": "Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems. Default accounts also include default factory/provider set accounts on other types of systems, software, or devices, including the root user account in AWS, the root user account in ESXi, and the default service account in Kubernetes.(Citation: Microsoft Local Accounts Feb 2019)(Citation: AWS Root User)(Citation: Threat Matrix for Kubernetes)\n\nDefault accounts are not limited to client machines; rather, they also include accounts that are preset for equipment such as network devices and computer applications, whether they are internal, open source, or commercial. Appliances that come preset with a username and password combination pose a serious threat to organizations that do not change it post installation, as they are easy targets for an adversary. Similarly, adversaries may also utilize publicly disclosed or stolen [Private Keys](https://attack.mitre.org/techniques/T1552/004) or credential materials to legitimately connect to remote environments via [Remote Services](https://attack.mitre.org/techniques/T1021).(Citation: Metasploit SSH Module)\n\nDefault accounts may be created on a system after initial setup by connecting or integrating it with another application. For example, when an ESXi server is connected to a vCenter server, a default privileged account called `vpxuser` is created on the ESXi server. If a threat actor is able to compromise this account’s credentials (for example, via [Exploitation for Credential Access](https://attack.mitre.org/techniques/T1212) on the vCenter host), they will then have access to the ESXi server.(Citation: Google Cloud Threat Intelligence VMWare ESXi Zero-Day 2023)(Citation: Pentera vCenter Information Disclosure)",
+      "Tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "Platforms": [
+        "containers",
+        "esxi",
+        "iaas",
+        "identity provider",
+        "linux",
+        "macos",
+        "network devices",
+        "office suite",
+        "saas",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.636Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 100,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [privilege-escalation]: doğrudan iş etkisi",
+        "Points": 15
+      }
+    ],
+    "TacticChain": "initial-access → persistence → privilege-escalation → stealth"
+  },
+  {
+    "Technique": {
+      "ID": "T1205.001",
+      "Name": "Port Knocking",
+      "Description": "Adversaries may use port knocking to hide open ports used for persistence or command and control. To enable a port, an adversary sends a series of attempted connections to a predefined sequence of closed ports. After the sequence is completed, opening a port is often accomplished by the host based firewall, but could also be implemented by custom software.\n\nThis technique has been observed both for the dynamic opening of a listening port as well as the initiating of a connection to a listening server on a different system.\n\nThe observation of the signal packets to trigger the communication can be conducted through different methods. One means, originally implemented by Cd00r (Citation: Hartrell cd00r 2002), is to use the libpcap libraries to sniff for the packets in question. Another method leverages raw sockets, which enables the malware to use ports that are already open for use by other programs.",
+      "Tactics": [
+        "stealth",
+        "persistence",
+        "command-and-control"
+      ],
+      "Platforms": [
+        "linux",
+        "macos",
+        "network devices",
+        "windows"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "2.0",
+      "Modified": "2026-05-12T15:12:00.688Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": null,
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 99,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "3+ taktik fazı: tam kampanya desteği (persistence → exfil)",
+        "Points": 20
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [command-and-control]: doğrudan iş etkisi",
+        "Points": 14
+      }
+    ],
+    "TacticChain": "persistence → command-and-control → stealth"
+  },
+  {
+    "Technique": {
+      "ID": "T1499.004",
+      "Name": "Application or System Exploitation",
+      "Description": "Adversaries may exploit software vulnerabilities that can cause an application or system to crash and deny availability to users. (Citation: Sucuri BIND9 August 2015) Some systems may automatically restart critical applications and services when crashes occur, but they can likely be re-exploited to cause a persistent denial of service (DoS) condition.\n\nAdversaries may exploit known or zero-day vulnerabilities to crash applications and/or systems, which may also lead to dependent applications and/or systems to be in a DoS condition. Crashed or restarted applications or systems may also have other effects such as [Data Destruction](https://attack.mitre.org/techniques/T1485), [Firmware Corruption](https://attack.mitre.org/techniques/T1495), [Service Stop](https://attack.mitre.org/techniques/T1489) etc. which may further cause a DoS condition and deny availability to critical information, applications and/or systems. ",
+      "Tactics": [
+        "impact"
+      ],
+      "Platforms": [
+        "windows",
+        "iaas",
+        "linux",
+        "macos"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "1.3",
+      "Modified": "2025-10-24T17:48:34.531Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": [
+        "Availability"
+      ],
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 93,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [impact]: doğrudan iş etkisi",
+        "Points": 18
+      },
+      {
+        "Label": "Kritik etki türü [Availability]: kalıcı hasar potansiyeli",
+        "Points": 10
+      }
+    ],
+    "TacticChain": "impact"
+  },
+  {
+    "Technique": {
+      "ID": "T1499.003",
+      "Name": "Application Exhaustion Flood",
+      "Description": "Adversaries may target resource intensive features of applications to cause a denial of service (DoS), denying availability to those applications. For example, specific features in web applications may be highly resource intensive. Repeated requests to those features may be able to exhaust system resources and deny access to the application or the server itself.(Citation: Arbor AnnualDoSreport Jan 2018)",
+      "Tactics": [
+        "impact"
+      ],
+      "Platforms": [
+        "windows",
+        "iaas",
+        "linux",
+        "macos"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "1.3",
+      "Modified": "2025-10-24T17:48:27.259Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": [
+        "Availability"
+      ],
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 93,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [impact]: doğrudan iş etkisi",
+        "Points": 18
+      },
+      {
+        "Label": "Kritik etki türü [Availability]: kalıcı hasar potansiyeli",
+        "Points": 10
+      }
+    ],
+    "TacticChain": "impact"
+  },
+  {
+    "Technique": {
+      "ID": "T1496.001",
+      "Name": "Compute Hijacking",
+      "Description": "Adversaries may leverage the compute resources of co-opted systems to complete resource-intensive tasks, which may impact system and/or hosted service availability. \n\nOne common purpose for [Compute Hijacking](https://attack.mitre.org/techniques/T1496/001) is to validate transactions of cryptocurrency networks and earn virtual currency. Adversaries may consume enough system resources to negatively impact and/or cause affected machines to become unresponsive.(Citation: Kaspersky Lazarus Under The Hood Blog 2017) Servers and cloud-based systems are common targets because of the high potential for available resources, but user endpoint systems may also be compromised and used for [Compute Hijacking](https://attack.mitre.org/techniques/T1496/001) and cryptocurrency mining.(Citation: CloudSploit - Unused AWS Regions) Containerized environments may also be targeted due to the ease of deployment via exposed APIs and the potential for scaling mining activities by deploying or compromising multiple containers within an environment or cluster.(Citation: Unit 42 Hildegard Malware)(Citation: Trend Micro Exposed Docker APIs)\n\nAdditionally, some cryptocurrency mining malware identify then kill off processes for competing malware to ensure it’s not competing for resources.(Citation: Trend Micro War of Crypto Miners)",
+      "Tactics": [
+        "impact"
+      ],
+      "Platforms": [
+        "windows",
+        "iaas",
+        "linux",
+        "macos",
+        "containers"
+      ],
+      "IsSubtechnique": true,
+      "DataSources": null,
+      "DetectionHint": "",
+      "Version": "1.0",
+      "Modified": "2025-04-15T22:08:46.014Z",
+      "Permissions": null,
+      "DefensesBypassed": null,
+      "ImpactType": [
+        "Availability"
+      ],
+      "NetworkReq": false,
+      "RiskScore": 0
+    },
+    "RiskScore": 93,
+    "RiskLevel": "CRITICAL",
+    "RiskFactors": [
+      {
+        "Label": "Çok platform hedefleme (4+): ağ genelinde yayılma potansiyeli",
+        "Points": 30
+      },
+      {
+        "Label": "Alt-teknik: genel algılama imzalarını atlatma kapasitesi",
+        "Points": 10
+      },
+      {
+        "Label": "KRİTİK ALGI AÇIĞI: Bilinen veri kaynağı yok — analist kör",
+        "Points": 25
+      },
+      {
+        "Label": "Kritik taktik [impact]: doğrudan iş etkisi",
+        "Points": 18
+      },
+      {
+        "Label": "Kritik etki türü [Availability]: kalıcı hasar potansiyeli",
+        "Points": 10
+      }
+    ],
+    "TacticChain": "impact"
+  }
+]

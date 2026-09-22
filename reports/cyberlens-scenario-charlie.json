@@ -1,0 +1,52 @@
+[
+    {
+        "technique": {
+            "id": "T1547.001",
+            "name": "Registry Run Keys / Startup Folder",
+            "tactics": [
+                "persistence"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 91.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1003.001",
+            "name": "LSASS Memory",
+            "tactics": [
+                "credential-access"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 95.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1021.001",
+            "name": "Remote Desktop Protocol",
+            "tactics": [
+                "lateral-movement"
+            ],
+            "data_sources": [
+                "Log"
+            ]
+        },
+        "risk_score": 83.0,
+        "risk_level": "HIGH"
+    },
+    {
+        "technique": {
+            "id": "T1078.003",
+            "name": "Local Accounts",
+            "tactics": [
+                "persistence"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 94.0,
+        "risk_level": "CRITICAL"
+    }
+]

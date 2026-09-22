@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/cypherlens/scout/internal/parser"
+	"cyberlens/internal/parser"
 )
 
 // ─────────────────────────────────────────────

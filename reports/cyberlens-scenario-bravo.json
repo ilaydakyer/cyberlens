@@ -1,0 +1,54 @@
+[
+    {
+        "technique": {
+            "id": "T1190",
+            "name": "Exploit Public-Facing Application",
+            "tactics": [
+                "initial-access"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 96.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1046",
+            "name": "Network Service Scanning",
+            "tactics": [
+                "discovery"
+            ],
+            "data_sources": [
+                "Network"
+            ]
+        },
+        "risk_score": 45.0,
+        "risk_level": "MEDIUM"
+    },
+    {
+        "technique": {
+            "id": "T1562.001",
+            "name": "Disable Tools",
+            "tactics": [
+                "defense-evasion"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 89.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1071.001",
+            "name": "Web Protocols",
+            "tactics": [
+                "command-and-control"
+            ],
+            "data_sources": [
+                "Log"
+            ]
+        },
+        "risk_score": 70.0,
+        "risk_level": "HIGH"
+    }
+]

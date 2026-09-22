@@ -1,0 +1,54 @@
+[
+    {
+        "technique": {
+            "id": "T1078.003",
+            "name": "Local Accounts",
+            "tactics": [
+                "persistence"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 94.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1562.001",
+            "name": "Disable Tools",
+            "tactics": [
+                "defense-evasion"
+            ],
+            "data_sources": []
+        },
+        "risk_score": 85.0,
+        "risk_level": "CRITICAL"
+    },
+    {
+        "technique": {
+            "id": "T1110.001",
+            "name": "Brute Force",
+            "tactics": [
+                "initial-access"
+            ],
+            "data_sources": [
+                "Log"
+            ]
+        },
+        "risk_score": 62.0,
+        "risk_level": "HIGH"
+    },
+    {
+        "technique": {
+            "id": "T1059.001",
+            "name": "PowerShell",
+            "tactics": [
+                "execution"
+            ],
+            "data_sources": [
+                "Process"
+            ]
+        },
+        "risk_score": 78.0,
+        "risk_level": "HIGH"
+    }
+]
