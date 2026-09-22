@@ -13,9 +13,7 @@ CyberLens, MITRE ATT&CK matrisi tabanlı, dinamik risk skorlaması ve yapay zeka
 - Varlık Taraması ve "Kör Nokta" (Log Eksikliği) Tespiti
 - CyberLens Akademi (İnteraktif Güvenlik Senaryoları)
 
-## Kurulum ve Çalıştırma
-
-### 1. Backend (Veri Motoru)
+### Backend
 Terminalden backend dizinine geçin ve veri toplama/analiz motorunu başlatın:
 ```bash
 cd backend
